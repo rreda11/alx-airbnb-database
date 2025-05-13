@@ -1,0 +1,3 @@
+CREATE PARTITION SCHEME psBookingByStartDate
+AS PARTITION pfBookingByStartDate
+ALL TO ([PRIMARY]);

@@ -25,3 +25,13 @@ CREATE TABLE BookingPartitioned
     created_at   DATETIME NOT NULL DEFAULT GETDATE()
 )
 ON psBookingByStartDate(start_date);
+
+
+SELECT 
+        booking_id,
+        SUM(amount) AS total_payment_amount,
+        MAX(payment_date) AS latest_payment_date,
+        STRING_AGG(payment_method, ', ') WITHIN GROUP (ORDER BY payment_date DESC) AS payment_methods,
+        FIRST_VALUE(payment_id) OVER (PARTITION BY booking_id ORDER BY payment_date DESC) AS latest_payment_id
+    FROM Payment
+    GROUP BY booking_id

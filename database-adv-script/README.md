@@ -9,5 +9,7 @@
 ![Screenshot](3.png)
 
 # a query to find all properties where the average rating is greater than 4.0 using a subquery.
+![Screenshot](4.png)
 
 # a correlated subquery to find users who have made more than 3 bookings.
+![Screenshot](5.png)
